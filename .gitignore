@@ -1,1 +1,5 @@
 /testdata/
+/dist/
+/build/
+/venv/
+/ibott_files.egg-info/
