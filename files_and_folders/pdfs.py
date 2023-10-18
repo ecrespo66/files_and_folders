@@ -1,5 +1,5 @@
 import PyPDF2
-from files import File
+from .files import File
 
 
 class PDF(File):

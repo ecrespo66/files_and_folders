@@ -1,5 +1,5 @@
 import PIL
-from files import File
+from .files import File
 
 
 class Image(File):

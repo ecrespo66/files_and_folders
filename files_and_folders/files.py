@@ -50,7 +50,10 @@ class File:
 
         if os.path.isfile(self.path):
             base_path = self.path.split("/")[:-1]
-            new_path = "/".join(base_path) + "/" + new_file_name
+            if len(base_path) == 0:
+                new_path = new_file_name
+            else:
+                new_path = "/".join(base_path) + "/" + new_file_name
         else:
             warnings.warn("File doesn't exists")
         if not os.path.exists(new_path):
@@ -65,7 +68,10 @@ class File:
         Arguments:
             new_location: new location of file
             """
-        new_path = "/".join(new_location, self.file_name)
+        if "." in new_location.split("/")[-1]:
+            new_location = "/".join(new_location.split("/")[:-1])
+
+        new_path = new_location + self.file_name
         if os.path.exists(self.path):
             if not os.path.exists(new_path):
                 os.rename(self.path, new_path)
@@ -92,8 +98,14 @@ class File:
         """
 
         if new_location is None:
-            new_location = self.path.replace(self.path.split("/")[-1], "")
-            new_path = new_location + "\\" + self.file_name
+            new_location = self.path.replace(self.path.split("/")[:-1], "")
+            new_path = new_location + "/" + self.file_name
+        elif "." in new_location.split("/")[-1]:
+            new_name = new_location.split("/")[-1]
+            new_location = "/".join(new_location.split("/")[:-1])
+            new_path = new_location + "/" + new_name
+        else:
+            new_path = new_location + "/" + self.file_name
 
         if os.path.exists(self.path):
             if not os.path.exists(new_path):

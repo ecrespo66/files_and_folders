@@ -2,7 +2,7 @@ import os
 import shutil
 import uuid
 import requests
-from files import File
+from .files import File
 
 
 class Folder:

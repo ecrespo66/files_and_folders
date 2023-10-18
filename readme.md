@@ -1,7 +1,7 @@
 ## [Files, Folders, Images and PDFs](files_and_folders)
 
 This Python package contains 4 different classes to work with files, folder, images and pdfs in your python developements
-for more information about how to develop your RPA projects with python check https://ibott.io/academy
+for more information about how to develop your RPA projects with python check https://automatehub.es/
 
 ### [1. files.py](files_and_folders/files.py) 
 Class to handle files.
